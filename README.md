@@ -1,2 +1,5 @@
 # LINQ-CSharp
-Query Objects in C# using LINQ 
+
+Learning to query objects using LINQ in C#
+
+ 
