@@ -1,0 +1,6 @@
+F:\Documents\Ai\Week 1\LINQ\Monarchs\Monarchs\bin\Debug\Monarchs.exe.config
+F:\Documents\Ai\Week 1\LINQ\Monarchs\Monarchs\bin\Debug\Monarchs.exe
+F:\Documents\Ai\Week 1\LINQ\Monarchs\Monarchs\bin\Debug\Monarchs.pdb
+F:\Documents\Ai\Week 1\LINQ\Monarchs\Monarchs\obj\Debug\Monarchs.csprojResolveAssemblyReference.cache
+F:\Documents\Ai\Week 1\LINQ\Monarchs\Monarchs\obj\Debug\Monarchs.exe
+F:\Documents\Ai\Week 1\LINQ\Monarchs\Monarchs\obj\Debug\Monarchs.pdb
