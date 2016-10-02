@@ -64,23 +64,24 @@ namespace Monarchs
             // STEP A: Not actually LINQ, but can you repeat the block above using just a single statement?
             // STEP A: Insert your solution below
 
-            // Step A Solution
+            #region STEP A Solution
+            
             Console.WriteLine(monarchList.Count); // This is the actual answer
-            // Displays the number of elements (Monarchs) in a list. Using the Console.WriteLine.
-            // .count * Allows me to get access to the number of elements within a list
+                                                  // Displays the number of elements (Monarchs) in a list. Using the Console.WriteLine.
+                                                  // .count * Allows me to get access to the number of elements within a list
+            #endregion
 
-            // Another way of doing it with string formatting
-            // ------------------------------------------------------------------------------------------------
-
+            #region STEP A + String Formattting
+            
             var monarchCount = monarchList.Count;
 
             Console.WriteLine(String.Format("There are {0} monarchs", monarchCount));
+            #endregion
 
-            // ------------------------------------------------------------------------------------------------
 
             // List the first 3 monarchs
             var limit1 = 3;
-            Console.WriteLine(String.Format("\nThe first {0} monarchs are:", limit1));
+            Console.WriteLine(String.Format("\nThe first {0} monarchs are: \n", limit1));
             {
                 int i1 = 0;
                 foreach (var item in monarchList)
@@ -91,19 +92,22 @@ namespace Monarchs
                 }
             }
 
+            Console.WriteLine("\n");
+
             // STEP B: Can you repeat the block above using a LINQ statement?
             // STEP B: Insert your solution below
 
+            #region STEP B Solution
 
-            // STEP B Solution
             var results = monarchList // Creates a varaible results and assigns it to monarchList
                          .Take(3); // Takes the  first 3 elements of the list
             foreach (var item in results) // For each item in results
                 Console.WriteLine(String.Format("{0} {1}", item.Forename, item.RegnalNo)); // Display the results in format Forename + RegnalNo
+            #endregion
 
             // List the last 3 monarchs
             var limit2 = 3;
-            Console.WriteLine(String.Format("\nThe last {0} monarchs are:", limit2));
+            Console.WriteLine(String.Format("\nThe last {0} monarchs are:\n", limit2));
             {
                 int i2 = 0;
                 foreach (var item in monarchList)
@@ -114,20 +118,24 @@ namespace Monarchs
                 }
             }
 
+            Console.WriteLine("\n");
+
             // STEP C: Can you repeat the block above using a LINQ statement?
             // There's more than one way to do this.
             // STEP C: Insert your solution below 
-            
-            // STEP C Solution       
+
+            #region STEP C Solution       
 
             var lastThree = monarchList // Creates a varaible called lastThree and assigns it to monarchList
                             .Skip(38) // Skip the first 23 elements of the list
                             .Take(3); // Take the last 3 element of the list
               foreach (var item in lastThree ) // For each varaible item in the lastThree
-                Console.WriteLine(String.Format("{0} {1}", item.Forename, item.RegnalNo)); // Display the results
+            Console.WriteLine(String.Format("{0} {1}", item.Forename, item.RegnalNo)); // Display the results
+
+            #endregion
 
             // List monarchs whose name starts with "E"
-            Console.WriteLine("\nThe monarchs with a name starting with E are:");
+            Console.WriteLine("\nThe monarchs with a name starting with E are:\n");
             {
                 int i3 = 0;
                 foreach (var item in monarchList)
@@ -138,19 +146,21 @@ namespace Monarchs
                 }
             }
 
+            Console.WriteLine("\n");
+
             // STEP D: Can you repeat the block above using a LINQ statement?
             // STEP D: Insert your solution below
 
-            // STEP D Solution
+            #region STEP D Solution
 
             var containsE = monarchList
                             .Where (item => item.Forename.StartsWith("E"));
                  foreach (var item in containsE)
                         Console.WriteLine(String.Format("{0} {1}", item.Forename, item.RegnalNo));
-
+            #endregion
 
             // List all the different names
-            Console.WriteLine("\nThe different names used are:");
+            Console.WriteLine("\nThe different names used are:\n");
             {
                 var previousName = "";
                 var sortedList = monarchList.OrderBy(r => r.Forename);
@@ -178,15 +188,18 @@ namespace Monarchs
 
             Console.Write("\n");
 
+            #region STEP E Solution
+
             var distinctNames = monarchList.OrderBy(a => a.Forename)
                                 .Select(b => b.Forename)
                                 .Distinct();
                 foreach (var item in distinctNames)
                     Console.WriteLine(String.Format("{0}", item));
+            #endregion
 
             // Count how many times each different name occurs
             // This is a good example of code that is tough to write correctly
-            Console.WriteLine("\nThe number of times each different name occurs are:");
+            Console.WriteLine("\nThe number of times each different name occurs are:\n");
             {
                 int count5 = 0;
                 var previousName5 = "";
@@ -214,12 +227,14 @@ namespace Monarchs
 
             Console.Write("\n");
 
-            var countNames = monarchList.OrderBy(a => a.Forename)
-                                .Select(b => b.Forename)
-                                .Distinct();
-            foreach (var item in countNames)
-                Console.WriteLine(String.Format("{0}", item));
+            #region STEP F Solution
 
+            var countNames = monarchList.OrderBy(r => r.Forename)
+                .GroupBy(a => a.Forename)
+                .Distinct();
+            foreach (var item in countNames)
+                Console.WriteLine(String.Format("{0}: {1}", item.Count() , item.Key));
+            #endregion
 
             Console.ReadLine();
         }
