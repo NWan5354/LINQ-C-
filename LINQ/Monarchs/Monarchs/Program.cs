@@ -132,6 +132,15 @@ namespace Monarchs
               foreach (var item in lastThree ) // For each varaible item in the lastThree
             Console.WriteLine(String.Format("{0} {1}", item.Forename, item.RegnalNo)); // Display the results
 
+            Console.WriteLine("\n");
+
+            var last3 = monarchList
+                        .OrderByDescending(a => a.AscensionYear)
+                        .Take(limit2)
+                        .OrderBy(a => a.AscensionYear);
+            foreach (var item in lastThree)
+                Console.WriteLine(String.Format("{0} {1}", item.Forename, item.RegnalNo));
+
             #endregion
 
             // List monarchs whose name starts with "E"
